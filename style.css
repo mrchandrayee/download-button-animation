@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{color-scheme:dark;--bg:#06111e;--muted:#718092;--blue:#0869ed;--purple:#a000f5;--green:#00d5a0;--red:#ff3e4f}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 25%,#0b2133 0,#06111e 52%,#040b13 100%);font-family:Inter,system-ui,sans-serif;color:#eaf2fb;display:grid;place-items:center;padding:28px 16px}
+.app{width:min(100%,620px);min-height:410px;position:relative;text-align:center;padding:20px 24px 24px;border:1px solid #15283a;border-radius:18px;background:linear-gradient(145deg,#071522dd,#050e19dd);box-shadow:0 25px 70px #0007}
+.window-dots{position:absolute;top:17px;left:18px;display:flex;gap:5px}.window-dots i{width:5px;height:5px;border-radius:50%;background:#ff6259}.window-dots i:nth-child(2){background:#f4c44e}.window-dots i:nth-child(3){background:#36c98c}
+header{padding-top:18px}.eyebrow{font-size:8px;letter-spacing:2px;color:#71879b;font-weight:700;margin-bottom:12px}
+h1{font-size:clamp(24px,5vw,32px);letter-spacing:-1.3px;margin:0;font-weight:600}
+header p{font-size:11px;color:#8190a0;margin:9px 0 0}
+.button-stage{display:flex;justify-content:center;gap:clamp(55px,17vw,125px);padding:54px 10px 30px}
+.example{width:90px;display:flex;align-items:center;flex-direction:column}
+.download-button{position:relative;width:58px;height:58px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:white;isolation:isolate;transition:transform .2s,background .3s,box-shadow .3s}
+.download-button:hover{transform:translateY(-3px) scale(1.035)}
+.download-button:active{transform:scale(.94)}
+.download-button:focus-visible{outline:2px solid white;outline-offset:6px}
+.download-button.success{background:linear-gradient(145deg,#087aff,#0752c7);box-shadow:0 0 0 2px #167fff,0 0 0 5px #082b56,0 9px 24px #006aff50}
+.download-button.fail{background:linear-gradient(145deg,#bd16ff,#8200d9);box-shadow:0 0 0 2px #b327ff,0 0 0 5px #381054,0 9px 24px #a000ff50}
+.ring{position:absolute;inset:5px;border:1px solid #ffffffa8;border-radius:50%;opacity:.9;transition:inset .3s,border-color .3s}
+.symbol{position:relative;width:34px;height:34px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;z-index:2}
+.symbol .check,.symbol .minus{opacity:0}
+.spinner{position:absolute;inset:-5px;border:2px solid transparent;border-top-color:#fff;border-right-color:#ffffff70;border-radius:50%;opacity:0;z-index:3}
+.status{font-size:9px;letter-spacing:2px;font-weight:800;margin:13px 0 5px}
+.success-text{color:#b8cbe0}.fail-text{color:#d4a4ef}
+.example p{font-size:7px;color:#718092;margin:0;white-space:nowrap}
+.example.done .download-button{background:linear-gradient(145deg,#08d4a0,#008d75);box-shadow:0 0 0 2px #20e5b4,0 0 0 5px #063d37,0 0 27px #00d5a077}
+.example.done .ring{inset:-3px;border-color:#39f5c4}
+.example.done .symbol .arrow{opacity:0;transform:translateY(-7px)}
+.example.done .symbol .check{opacity:1;stroke-dasharray:40;stroke-dashoffset:0;animation:draw .45s ease both}
+.example.failed .download-button{background:linear-gradient(145deg,#ff5965,#d91f36);box-shadow:0 0 0 2px #ff6873,0 0 0 5px #4b1420,0 0 27px #ff334c70}
+.example.failed .ring{border-color:#ffb6bc;inset:-3px}
+.example.failed .symbol .arrow{opacity:0;transform:translateY(-5px)}
+.example.failed .symbol .minus{opacity:1;animation:appear .25s ease both}
+.example.loading .spinner{opacity:1;animation:spin .7s linear infinite}
+.example.loading .symbol .arrow{opacity:.2}
+.example.shake .download-button{animation:shake .38s ease}
+.status.live-success{color:#19e4b1}.status.live-fail{color:#ff7782}
+.message{min-height:16px;color:#9aabba;font-size:9px;margin:0 auto 15px}
+.reset{border:1px solid #263d52;background:#0b1a29;color:#b7c6d4;border-radius:20px;padding:8px 15px;font:500 9px Inter,sans-serif;cursor:pointer;transition:background .2s}
+.reset:hover{background:#142b40}
+footer{margin-top:29px;color:#647b8d;font-size:8px;font-weight:700;letter-spacing:1.5px}.footer-mark{color:#12a6ff;margin-right:5px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes draw{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}
+@keyframes appear{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+@media(max-width:380px){.app{padding-inline:12px}.button-stage{gap:52px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

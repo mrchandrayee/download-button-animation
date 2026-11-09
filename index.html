@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0a1a">
+  <!-- Primary SEO -->
+  <title>Download Button — Success & Fail | mrchandrayee</title>
+  <meta name="description" content="An animated download button with progress, success and failure state transitions. Pure HTML, CSS & JavaScript microinteraction.">
+  <meta name="author" content="mrchandrayee">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mrchandrayee.github.io/download-button-animation/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrchandrayee.github.io/download-button-animation/">
+  <meta property="og:title" content="Download Button — Success & Fail | mrchandrayee">
+  <meta property="og:description" content="An animated download button with progress, success and failure state transitions. Pure HTML, CSS & JavaScript microinteraction.">
+  <meta property="og:image" content="https://mrchandrayee.github.io/download-button-animation/preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mrchandrayee.github.io/download-button-animation/">
+  <meta name="twitter:title" content="Download Button — Success & Fail | mrchandrayee">
+  <meta name="twitter:description" content="An animated download button with progress, success and failure state transitions. Pure HTML, CSS & JavaScript microinteraction.">
+  <meta name="twitter:image" content="https://mrchandrayee.github.io/download-button-animation/preview.png">
+  <meta name="twitter:creator" content="@mrchandrayee">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Download Button — Success & Fail",
+    "description": "An animated download button with progress, success and failure state transitions. Pure HTML, CSS & JavaScript microinteraction.",
+    "url": "https://mrchandrayee.github.io/download-button-animation/",
+    "author": { "@type": "Person", "name": "mrchandrayee", "url": "https://github.com/mrchandrayee" },
+    "applicationCategory": "WebApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <meta name="theme-color" content="#06111e">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <header>
+      <div class="eyebrow">INTERACTIVE UI COMPONENT</div>
+      <h1>Download Button</h1>
+      <p>Two outcomes. One satisfying interaction.</p>
+    </header>
+
+    <section class="button-stage" aria-label="Download button examples">
+      <article class="example">
+        <button class="download-button success" id="successButton" type="button" aria-label="Try successful download">
+          <span class="ring"></span>
+          <svg class="symbol" viewBox="0 0 48 48" aria-hidden="true">
+            <path class="arrow" d="M24 8v25m-10-10 10 10 10-10"/>
+            <path class="check" d="m12 24 8 8 17-18"/>
+            <path class="minus" d="M13 24h22"/>
+          </svg>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+        <h2 class="status success-text" id="successStatus">SUCCESS</h2>
+        <p>Ready when clicked</p>
+      </article>
+
+      <article class="example">
+        <button class="download-button fail" id="failButton" type="button" aria-label="Try failed download">
+          <span class="ring"></span>
+          <svg class="symbol" viewBox="0 0 48 48" aria-hidden="true">
+            <path class="arrow" d="M24 8v25m-10-10 10 10 10-10"/>
+            <path class="check" d="m12 24 8 8 17-18"/>
+            <path class="minus" d="M13 24h22"/>
+          </svg>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+        <h2 class="status fail-text" id="failStatus">FAIL</h2>
+        <p>Simulated error state</p>
+      </article>
+    </section>
+
+    <div class="message" id="message" aria-live="polite">Choose a button to preview its animation.</div>
+    <button class="reset" id="resetButton" type="button">↻ Reset animation</button>
+    <footer><span class="footer-mark">●</span> CODE_AND_CHILL</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
