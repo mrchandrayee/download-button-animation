@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download Button — Stream Animation</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="page">
+  <div class="topline"><span>●</span><span>●</span><span>●</span><b>FRONTEND · HTML CSS JS</b><small>download / progress</small></div>
+  <header><h1>Download Button</h1></header>
+  <section class="download-demo">
+    <button class="download" id="download" type="button" aria-label="Download demo file">
+      <svg class="icon" viewBox="0 0 64 64" aria-hidden="true">
+        <circle class="ring" cx="32" cy="32" r="26"/>
+        <path class="arrow" d="M32 17v25m-10-10 10 10 10-10"/>
+      </svg>
+    </button>
+    <div class="progress-stage" id="progressStage" aria-live="polite">
+      <svg class="progress-svg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
+        <path class="rail" d="M8 64H312"/>
+        <path class="rail rail--fill" id="railFill" pathLength="1" d="M8 64H312"/>
+        <g class="rig" id="rig">
+          <path class="canopy" d="M-11 -8 Q0 -25 11 -8 Q0 -4 -11 -8Z"/>
+          <path class="canopy-line" d="M-11 -8L0 2 11 -8"/>
+          <path class="payload" d="M-3 2H3L5 10H-5Z"/>
+          <path class="arrow-small" d="M0 5V19M-4 15L0 19 4 15"/>
+          <path class="check" d="M-7 0L-2 5 8 -6"/>
+        </g>
+      </svg>
+      <div class="percent" id="percent">0%</div>
+      <div class="state" id="state">READY TO DOWNLOAD</div>
+      <div class="file-meta" id="fileMeta">download-demo.txt · 512 KB</div>
+    </div>
+    <button class="again" id="again" hidden>Download again ↻</button>
+  </section>
+  <p class="hint" id="hint">Press the button to start your download.</p>
+  <section class="code-panels">
+    <article class="code-panel html"><h3><i></i> index.html</h3><pre><code>&lt;!-- ONE stroke is both the
+     ring and the track --&gt;
+&lt;path class="rail rail--fill"
+      pathLength="1"/&gt;
+
+&lt;!-- the payload that falls --&gt;
+&lt;g class="rig"&gt;
+  &lt;g class="canopy"&gt;…&lt;/g&gt;
+  &lt;path class="arrow"/&gt;
+  &lt;path class="check"/&gt;
+&lt;/g&gt;</code></pre></article>
+    <article class="code-panel css"><h3><i></i> style.css</h3><pre><code>/* pathLength=1, so dashoffset
+   IS the progress — 0 → 1 */
+.rail--fill {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+}
+
+/* nothing flies if you asked
+   for less motion */
+@media (prefers-reduced-motion) {
+  .rig { display: none }
+}</code></pre></article>
+    <article class="code-panel js"><h3><i></i> app.js</h3><pre><code>// the ring UNROLLS into the
+// bar: each point blends its
+// place on the circle with
+// its place on the line
+y = ry + (lineY - ry) * p;
+
+// real bytes, real stream
+loaded += value.length;
+actual = loaded / total;
+
+// paced so a fast one reads
+shown = Math.min(actual,
+  elapsed / minMs);</code></pre></article>
+  </section>
+  <footer>CSS motion study <span>·</span> STREAM / PROGRESS / COMPLETE</footer>
+</main><script src="app.js"></script></body></html>
